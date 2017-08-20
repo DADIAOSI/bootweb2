@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>企业信息管理</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+    <script src="js/webjs.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/webcss.css">
+    <script src="js/bootstrap-table.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top ">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">基于无人机的危险源管理系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">网站首页</a></li>
+                <li><a data-target="#mymodal" data-toggle="modal">用户登录</a></li>
+                <li><a href="#">系统维护</a></li>
+                <li><a href="#">帮助</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--登录界面-->
+<div class="modal fade" tabindex="-1 " role="dialog" aria-describedby="mydialogmodal" id="mymodal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" data-dismiss="modal" >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="mymodallabel">登录页面</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="name" class="control-label">用户名</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="psd" class="control-label">密码</label>
+                        <input type="password" class="form-control" id="psd">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确定</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--详细信息模态栏-->
+<div id="xxxxmodal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详细信息</h4>
+            </div>
+            <div class="modal-body">
+                <p>信息内容，table形式显示，可编辑状态&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">保存修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--删除信息模态栏-->
+<div id="deletemodal" class="modal fade" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">警告</h4>
+            </div>
+            <div class="modal-body">
+                <p>是否删除该条记录&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">是</button>
+                <button type="button" class="btn btn-primary">否</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#collapseone" data-parent="#accordion" data-toggle="collapse">企业信息管理</a></h4>
+                    </div>
+                    <div id="collapseone" class="panel-collapse collapse">
+                        <div class="list-group">
+                            <a id="qyxx" class="list-group-item active" href="#">企业信息</a>
+                            <a id="zzqk" class="list-group-item" href="#">资质情况</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#collapsetwo" data-parent="#accordion" data-toggle="collapse">资质信息</a></h4>
+                    </div>
+                    <div id="collapsetwo" class="panel-collapse collapse">
+                        <div class="list-group">
+                            <a id="xyzz" class="list-group-item" href="#">现有资质</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#collapsethree" data-parent="accordion" data-toggle="collapse">企业危险源</a></h4>
+                    </div>
+                    <div id="collapsethree" class="panel-collapse collapse">
+                        <a id="wxyfl" class="list-group-item" href="#">危险源分类</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div id="content" class="container-fluid">
+                <h2 class="sub-header">企业信息列表</h2>
+                    <div class="table-responsive">
+                        <table id="table" class="table table-bordered">
+                        </table>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap-table.min.css">
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootstrap-table.min.js"></script>
+    <style>
+        a[class='btn btn-primary btn-sm']{
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+<!--详细信息模态栏-->
+<div id="xxxxmodal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详细信息</h4>
+            </div>
+            <div class="modal-body">
+                <p>信息内容，table形式显示，可编辑状态&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">保存修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--删除信息模态栏-->
+<div id="deletemodal" class="modal fade" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">警告</h4>
+            </div>
+            <div class="modal-body">
+                <p>是否删除该条记录&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">是</button>
+                <button type="button" class="btn btn-primary">否</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--table插件控制数据显示-->
+<div class="container">
+    <div class="table-responsive">
+        <table id="table" class="table table-bordered">
+        </table>
+    </div>
+</div>
+<input type="checkbox">
+</body>
+<script>
+    $('#table').bootstrapTable({
+        url:'data/tablejson.json',
+        method: 'get',
+        //url:"./index.php?r=subprocess/subprocessInfo",
+        editable:true,//开启编辑模式
+        clickToSelect: true,
+        cache: false,//设置为 false 禁用 AJAX 数据缓存
+        showToggle:true, //显示切换按钮来切换表/卡片视图。
+        showPaginationSwitch:true, //显示分页切换按钮
+        pagination: true,
+        pageList: [10,25,50,100],
+        pageSize:10,
+        pageNumber:1, //设置分页的首页页码
+        uniqueId: 'indexid', //将index列设为唯一索引
+        striped: true,//隔行变色
+        search: true,//是否启用搜索框
+        //searchText:'搜索',//搜索提示文字
+        showRefresh: true,//是否显示 刷新按钮
+        showColumns:true,//是否显示 内容列下拉框,选择显示的列
+        minimumCountColumns: 2,//当列数小于此值时，将隐藏内容列下拉框。
+
+        smartDisplay:true,
+        columns:[
+//            {
+//            width:'50px',
+//            formatter:function (value,row,index) {
+//                var str='<input type="checkbox">';
+//                return str;
+//            }
+//        },
+            {
+            field: 'id',
+            title: 'ID',
+//            formatter:function(value, row, index){
+//                return row.index=index+1 ; //返回行号
+//            }//直接采用json数据中的ID
+        }, {
+            field: 'name',
+            title: '企业名称',
+
+        }, {
+            field: 'address',
+            title: '地址'
+        },{
+            field:'xxxxid',
+            title:'数据操作',
+            width:'20%',
+            formatter:function (value,row,index) {
+                var str='<a href="#" class="btn btn-primary btn-sm" data-target="#xxxxmodal" data-toggle="modal">详细信息<li class="glyphicon glyphicon-list-alt"></li></a>'+
+                '<a href="#" class="btn btn-primary btn-sm" data-target="#deletemodal" data-toggle="modal">删除<li class="glyphicon glyphicon-remove"></li></a>';
+                return str;
+            }
+        }
+        ]
+    });
+
+</script>
+</html>
