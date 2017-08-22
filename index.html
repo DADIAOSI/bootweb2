@@ -68,18 +68,71 @@
 </div>
 <!--详细信息模态栏-->
 <div id="xxxxmodal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" style="width: 60%;" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">详细信息</h4>
             </div>
             <div class="modal-body">
-                <p>信息内容，table形式显示，可编辑状态&hellip;</p>
+                <div class="table-responsive" style="padding: 0 10% 0 10%">
+                    <form>
+                        <table id="xxxx" class="table table-bordered">
+                            <tr>
+                                <td>企业名称</td>
+                                <td id="qymc"></td>
+                                <td>组织机构代码</td>
+                                <td id="zzjgdm"></td>
+                            </tr>
+                            <tr>
+                                <td>注册号</td>
+                                <td id="zch"></td>
+                                <td>注册地址</td>
+                                <td id="zcdz"></td>
+                            </tr>
+                            <tr>
+                                <td>法定代表人</td>
+                                <td id="fddbr"></td>
+                                <td>成立日期</td>
+                                <td id="clrq"></td>
+                            </tr>
+                            <tr>
+                                <td>行政区划代码</td>
+                                <td id="xzqhdm"></td>
+                                <td>登记注册类型</td>
+                                <td id="djzclx"></td>
+                            </tr>
+                            <tr>
+                                <td>经营范围</td>
+                                <td id="jyfw"></td>
+                                <td>上级主管部门</td>
+                                <td id="sjzgbm"></td>
+                            </tr>
+                            <tr>
+                                <td>固定资产总值</td>
+                                <td id="gdzczz"></td>
+                                <td>年收入</td>
+                                <td id="nsr"></td>
+                            </tr>
+                            <tr>
+                                <td>总利润</td>
+                                <td id="zlr"></td>
+                                <td>占地面积</td>
+                                <td id="zdmj"></td>
+                            </tr>
+                            <tr>
+                                <td>通讯地址</td>
+                                <td id="txdz"></td>
+                                <td>邮政编码</td>
+                                <td id="yzbm"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">保存修改</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+
             </div>
         </div>
     </div>
@@ -98,6 +151,78 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">是</button>
                 <button type="button" class="btn btn-primary">否</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改模态栏-->
+<div id="xiugaimodal" class="modal fade" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" style="width: 60%;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">请填写修改信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive" style="padding: 0 10% 0 10%">
+                    <form id="formxg" name="formxg" action="#" method="post">
+                        <table id="xgxxxx" class="table table-bordered">
+                            <tr>
+                                <td>企业名称</td>
+                                <td><input type="text" class="form-control"></td>
+                                <td>组织机构代码</td>
+                                <td><input name="zzjgdm" type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>注册号</td>
+                                <td><input name="zch" type="text" class="form-control"></td>
+                                <td>注册地址</td>
+                                <td><input name="zcdz" type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>法定代表人</td>
+                                <td><input name="fddbr" type="text" class="form-control"></td>
+                                <td>成立日期</td>
+                                <td><input name="clrq" type="date" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>行政区划代码</td>
+                                <td><input name="xzqhdm" type="text" class="form-control"></td>
+                                <td>登记注册类型</td>
+                                <td><input name="djzclx" type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>经营范围</td>
+                                <td><input name="jyfw" type="text" class="form-control"></td>
+                                <td>上级主管部门</td>
+                                <td><input name="sjzgbm" type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>固定资产总值</td>
+                                <td><input name="gdzczz" type="text" class="form-control"></td>
+                                <td>年收入</td>
+                                <td><input name="nsr" type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>总利润</td>
+                                <td><input name="zlr" type="text" class="form-control"></td>
+                                <td>占地面积</td>
+                                <td><input name="zdmj" type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>通讯地址</td>
+                                <td><input name="txdz" type="text" class="form-control"></td>
+                                <td>邮政编码</td>
+                                <td><input name="yzbm" type="text" class="form-control" pattern="[1-9]\d{5}(?!\d)" required title="请输入正确的邮政编码"></td>
+                            </tr>
+                        </table>
+                        <input type="submit" value="提交" class="form-control">
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button  type="button" class="btn btn-default" data-dismiss="modal">提交</button>
+                <button type="button" class="btn btn-primary">取消</button>
             </div>
         </div>
     </div>
@@ -137,13 +262,109 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <div id="content" class="container-fluid">
+        <div id="rightcontent" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div id="content" class="container-fluid  ">
                 <h2 class="sub-header">企业信息列表</h2>
                     <div class="table-responsive">
                         <table id="table" class="table table-bordered">
                         </table>
                     </div>
+            </div>
+            <div id="wxy" class="container-fluid hidden">
+                <div class="panel panel-primary" style="margin-top: 50px;">
+                    <div class="panel-heading">
+                        危险品分类
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <a class="thumbnail">
+
+                                    <img src="img/储罐.png"/>
+                                </a>
+                                <div class="caption">
+                                    <h3 class="text-center">储罐区</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+
+                                <a class="thumbnail">
+
+                                    <img src="img/库区1.png"/>
+                                </a>
+                                <div class="caption">
+                                    <h3 class="text-center">库区</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <a class="thumbnail">
+
+                                    <img src="img/工业锅炉.png"/>
+                                </a>
+                                <div class="caption">
+                                    <h3 class="text-center">工业锅炉</h3>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <a href="#" class="thumbnail">
+
+                                    <img src="img/管道.png"/></a>
+                                <div class="caption">
+                                    <h3 class="text-center">压力管道</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <a href="#" class="thumbnail">
+
+                                    <img src="img/煤矿.png"/>
+                                </a>
+                                <div class="caption">
+                                    <h3 class="text-center">煤矿</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <a href="#" class="thumbnail">
+
+                                    <img src="img/金属行情.png"/>
+                                </a>
+                                <div class="caption">
+                                    <h3 class="text-center">金属矿</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <a href="#" class="thumbnail">
+
+                                    <img src="img/废金属.png"/>
+                                </a>
+                                <div class="caption">
+                                    <h3 class="text-center">尾矿区</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <a href="#" class="thumbnail">
+                                    <img src="img/生产.png"/>
+                                </a>
+                                <div class="caption">
+                                    <h3 class="text-center">危险生产场所</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <a href="#" class="thumbnail">
+
+                                    <img src="img/危险.png"/></a>
+                                <div class="caption">
+                                    <h3 class="text-center">压力容器</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>

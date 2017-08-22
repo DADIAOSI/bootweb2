@@ -5,6 +5,36 @@ $(document).ready(function () {
         $(this).addClass('active');
         //alert($(this).attr('id'));
     });
+
+    var $rightcontent=$('#rightcontent > div');
+    $rightcontent.each(function () {
+        //alert($(this).attr('id'));
+    });
+    // $("a[id='wxpfl']").click(function () {
+    //     $rightcontent.each(function () {
+    //         $(this).att
+    //     })
+    // })
+    // $('#tj').click(function () {
+    //     $('#formxg').submit();
+    // });
+    //详细信息lable宽度；
+    $('#xxxx tr td:even').css({"width":"15%"});
+    $('#xxxx tr td:odd').css({"width":"35%"});
+    $('#xiugaimodal tr td:even').css({"width":"15%"});
+    $('#xiugaimodal tr td:odd').css({"width":"35%"});
+    //模态框居中,该实现方式 弹出框是居中了， 但弹出时有一些迟疑后抖动到中部；不是特别理想
+    $('#xxxxmodal,#xiugaimodal').on('shown.bs.modal',function () {
+        var $this = $(this);
+        var $modal_dialog = $this.find('.modal-dialog');
+        var m_top = ( $(window).height() - $modal_dialog.height() )/2;
+        $modal_dialog.css({'margin': m_top + 'px auto'});
+    });
+    //修改信息
+    // $('#xiugaimodal').on('show.bs.modal',function () {
+    //     $('#xgp').text('dad');
+    // })
+    //加载table数据
     $('#table').bootstrapTable({
         url:'data/tablejson.json',
         method: 'get',
@@ -37,13 +67,13 @@ $(document).ready(function () {
 //        },
             {
                 field: 'id',
-                title: 'ID',
+                title: 'ID'
 //            formatter:function(value, row, index){
 //                return row.index=index+1 ; //返回行号
 //            }//直接采用json数据中的ID
             }, {
                 field: 'name',
-                title: '企业名称',
+                title: '企业名称'
 
             }, {
                 field: 'address',
@@ -51,14 +81,15 @@ $(document).ready(function () {
             },{
                 field:'xxxxid',
                 title:'数据操作',
-                width:'20%',
+                width:'25%',
                 formatter:function (value,row,index) {
                     var str='<a href="#" class="btn btn-primary btn-sm" data-target="#xxxxmodal" data-toggle="modal">详细信息<li class="glyphicon glyphicon-list-alt"></li></a>'+
-                        '<a href="#" class="btn btn-primary btn-sm" data-target="#deletemodal" data-toggle="modal">删除<li class="glyphicon glyphicon-remove"></li></a>';
+                        '<a href="#" class="btn btn-primary btn-sm" data-target="#deletemodal" data-toggle="modal">删除<li class="glyphicon glyphicon-remove"></li></a>'+
+                        '<a href="#" id="xxxg" class="btn btn-primary btn-sm" data-target="#xiugaimodal" data-toggle="modal">修改<li class="glyphicon glyphicon-pencil"></li></a>';
                     return str;
                 }
             }
         ]
     });
 
-})
+});

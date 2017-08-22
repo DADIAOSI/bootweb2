@@ -17,7 +17,7 @@
 <body>
 <!--详细信息模态栏-->
 <div id="xxxxmodal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" style="width: 60%" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -25,6 +25,58 @@
             </div>
             <div class="modal-body">
                 <p>信息内容，table形式显示，可编辑状态&hellip;</p>
+                <form>
+                    <table id="xxxx" class="table table-bordered">
+                        <tr>
+                            <td>企业名称</td>
+                            <td id="qymc"></td>
+                            <td>组织机构代码</td>
+                            <td id="zzjgdm"></td>
+                        </tr>
+                        <tr>
+                            <td>注册号</td>
+                            <td id="zch"></td>
+                            <td>注册地址</td>
+                            <td id="zcdz"></td>
+                        </tr>
+                        <tr>
+                            <td>法定代表人</td>
+                            <td id="fddbr"></td>
+                            <td>成立日期</td>
+                            <td id="clrq"></td>
+                        </tr>
+                        <tr>
+                            <td>行政区划代码</td>
+                            <td id="xzqhdm"></td>
+                            <td>登记注册类型</td>
+                            <td id="djzclx"></td>
+                        </tr>
+                        <tr>
+                            <td>经营范围</td>
+                            <td id="jyfw"></td>
+                            <td>上级主管部门</td>
+                            <td id="sjzgbm"></td>
+                        </tr>
+                        <tr>
+                            <td>固定资产总值</td>
+                            <td id="gdzczz"></td>
+                            <td>年收入</td>
+                            <td id="nsr"></td>
+                        </tr>
+                        <tr>
+                            <td>总利润</td>
+                            <td id="zlr"></td>
+                            <td>占地面积</td>
+                            <td id="zdmj"></td>
+                        </tr>
+                        <tr>
+                            <td>通讯地址</td>
+                            <td id="txdz"></td>
+                            <td>邮政编码</td>
+                            <td id="yzbm"></td>
+                        </tr>
+                    </table>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -51,16 +103,45 @@
         </div>
     </div>
 </div>
+<!--修改模态栏-->
+<div id="xiugaimodal" class="modal fade" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">请填写修改信息</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="">
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">提交</button>
+                <button type="button" class="btn btn-primary">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!--table插件控制数据显示-->
 <div class="container">
     <div class="table-responsive">
         <table id="table" class="table table-bordered">
         </table>
+
     </div>
 </div>
 <input type="checkbox">
+<form>
+    <input required type="text" title="adw" pattern="[1-9]\d{5}(?!\d)" class="form-control">
+</form>
+
+<a href="#" class="btn btn-primary btn-sm" data-target="#xiugaimodal" data-toggle="modal">修改<li class="glyphicon glyphicon-pencil"></li></a>
 </body>
 <script>
+    $('tr td:even').css({"width":"15%"});
     $('#table').bootstrapTable({
         url:'data/tablejson.json',
         method: 'get',
@@ -107,10 +188,11 @@
         },{
             field:'xxxxid',
             title:'数据操作',
-            width:'20%',
+            width:'25%',
             formatter:function (value,row,index) {
                 var str='<a href="#" class="btn btn-primary btn-sm" data-target="#xxxxmodal" data-toggle="modal">详细信息<li class="glyphicon glyphicon-list-alt"></li></a>'+
-                '<a href="#" class="btn btn-primary btn-sm" data-target="#deletemodal" data-toggle="modal">删除<li class="glyphicon glyphicon-remove"></li></a>';
+                '<a href="#" class="btn btn-primary btn-sm" data-target="#deletemodal" data-toggle="modal">删除<li class="glyphicon glyphicon-remove"></li></a>'+
+                '<a href="#" class="btn btn-primary btn-sm" data-target="#xiugaimodal" data-toggle="modal">修改<li class="glyphicon glyphicon-pencil"></li></a>';
                 return str;
             }
         }
