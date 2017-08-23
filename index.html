@@ -127,13 +127,20 @@
                                 <td id="yzbm"></td>
                             </tr>
                         </table>
+                        <div class="col-sm-2 col-sm-offset-5">
+                            <div class="btn-group btn-group-justified">
+                                <a id="gb" class="btn btn-primary">关闭</a>
+                            </div>
+
+                        </div>
                     </form>
+
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            <!--<div class="modal-footer">-->
+                <!--<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>-->
 
-            </div>
+            <!--</div>-->
         </div>
     </div>
 </div>
@@ -216,14 +223,20 @@
                                 <td><input name="yzbm" type="text" class="form-control" pattern="[1-9]\d{5}(?!\d)" required title="请输入正确的邮政编码"></td>
                             </tr>
                         </table>
-                        <input type="submit" value="提交" class="form-control">
+                        <div class=" col-sm-2 col-sm-offset-4">
+                            <input type="submit" value="提交" class="form-control btn btn-primary">
+                        </div>
+                        <div class="col-sm-2">
+                            <input id="qx" type="button" value="取消" class="form-control btn btn-primary">
+                        </div>
+
                     </form>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button  type="button" class="btn btn-default" data-dismiss="modal">提交</button>
-                <button type="button" class="btn btn-primary">取消</button>
-            </div>
+            <!--<div class="modal-footer">-->
+                <!--<button  type="button" class="btn btn-default" data-dismiss="modal">提交</button>-->
+                <!--<button type="button" class="btn btn-primary">取消</button>-->
+            <!--</div>-->
         </div>
     </div>
 </div>
@@ -237,8 +250,8 @@
                     </div>
                     <div id="collapseone" class="panel-collapse collapse">
                         <div class="list-group">
-                            <a id="qyxx" class="list-group-item active" href="#">企业信息</a>
-                            <a id="zzqk" class="list-group-item" href="#">资质情况</a>
+                            <a id="item0" class="list-group-item active" href="#">企业信息</a>
+                            <a id="item1" class="list-group-item" href="#">资质情况</a>
                         </div>
                     </div>
                 </div>
@@ -248,7 +261,7 @@
                     </div>
                     <div id="collapsetwo" class="panel-collapse collapse">
                         <div class="list-group">
-                            <a id="xyzz" class="list-group-item" href="#">现有资质</a>
+                            <a id="item2" class="list-group-item" href="#">现有资质</a>
                         </div>
                     </div>
                 </div>
@@ -257,20 +270,20 @@
                         <h4 class="panel-title"><a href="#collapsethree" data-parent="accordion" data-toggle="collapse">企业危险源</a></h4>
                     </div>
                     <div id="collapsethree" class="panel-collapse collapse">
-                        <a id="wxyfl" class="list-group-item" href="#">危险源分类</a>
+                        <a id="item3" class="list-group-item" href="#">危险源分类</a>
                     </div>
                 </div>
             </div>
         </div>
         <div id="rightcontent" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <div id="content" class="container-fluid  ">
+            <div id="content_item0" class="container-fluid  ">
                 <h2 class="sub-header">企业信息列表</h2>
                     <div class="table-responsive">
                         <table id="table" class="table table-bordered">
                         </table>
                     </div>
             </div>
-            <div id="wxy" class="container-fluid hidden">
+            <div id="content_item3" class="container-fluid hidden">
                 <div class="panel panel-primary" style="margin-top: 50px;">
                     <div class="panel-heading">
                         危险品分类

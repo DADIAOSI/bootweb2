@@ -1,8 +1,13 @@
 $(document).ready(function () {
+    //右边选项卡显示
     var $item=$('.list-group-item');
     $item.click(function () {
         $item.removeClass('active');
         $(this).addClass('active');
+        var $contentID="#content_"+$(this).attr('id');
+        var $rightcontent=$('#rightcontent > div');
+        $rightcontent.addClass('hidden');
+        $($contentID).removeClass('hidden');
         //alert($(this).attr('id'));
     });
 
@@ -90,6 +95,12 @@ $(document).ready(function () {
                 }
             }
         ]
+    });
+    $('#gb').click(function () {
+        $('#xxxxmodal').modal('hide');
+    });
+    $('#qx').click(function () {
+        $('#xiugaimodal').modal('hide');
     });
 
 });
