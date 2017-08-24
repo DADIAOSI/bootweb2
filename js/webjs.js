@@ -46,6 +46,7 @@ $(document).ready(function () {
         //url:"./index.php?r=subprocess/subprocessInfo",
         editable:true,//开启编辑模式
         clickToSelect: true,
+        toolbar:'#toolbar0',
         cache: false,//设置为 false 禁用 AJAX 数据缓存
         showToggle:true, //显示切换按钮来切换表/卡片视图。
         showPaginationSwitch:false, //显示分页切换按钮
@@ -86,7 +87,7 @@ $(document).ready(function () {
             },{
                 field:'xxxxid',
                 title:'数据操作',
-                width:'25%',
+                width:'19%',
                 formatter:function (value,row,index) {
                     var str='<a href="#" class="btn btn-primary btn-sm" data-target="#xxxxmodal" data-toggle="modal">详细信息<li class="glyphicon glyphicon-list-alt"></li></a>'+
                         '<a href="#" class="btn btn-primary btn-sm" data-target="#deletemodal" data-toggle="modal">删除<li class="glyphicon glyphicon-remove"></li></a>'+

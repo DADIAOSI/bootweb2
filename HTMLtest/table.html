@@ -130,6 +130,25 @@
     <div class="table-responsive">
         <table id="table" class="table table-bordered">
         </table>
+        <table id="table1"
+               data-toggle="table"
+               data-url="data/tablejson.json"
+               data-click-to-select="true"
+               data-show-refresh="true"
+               data-show-toggle="true"
+               data-show-columns="true"
+               data-pagination="true"
+               data-search="true">
+            <thead>
+            <tr>
+                <th data-field="state" data-checkbox="true"></th>
+                <th data-field="id">ID</th>
+                <th data-field="name">企业名称</th>
+                <th data-field="address">地址</th>
+                <th></th>
+            </tr>
+            </thead>
+        </table>
 
     </div>
 </div>
@@ -142,6 +161,7 @@
 </body>
 <script>
     $('tr td:even').css({"width":"15%"});
+
     $('#table').bootstrapTable({
         url:'data/tablejson.json',
         method: 'get',

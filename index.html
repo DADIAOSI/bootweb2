@@ -176,7 +176,7 @@
                         <table id="xgxxxx" class="table table-bordered">
                             <tr>
                                 <td>企业名称</td>
-                                <td><input type="text" class="form-control"></td>
+                                <td><input name="qyxx" type="text" class="form-control"></td>
                                 <td>组织机构代码</td>
                                 <td><input name="zzjgdm" type="text" class="form-control"></td>
                             </tr>
@@ -252,19 +252,20 @@
                         <div class="list-group">
                             <a id="item0" class="list-group-item active" href="#">企业信息</a>
                             <a id="item1" class="list-group-item" href="#">资质情况</a>
+                            <a id="item2" class="list-group-item" href="#">安全经费</a>
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title"><a href="#collapsetwo" data-parent="#accordion" data-toggle="collapse">资质信息</a></h4>
-                    </div>
-                    <div id="collapsetwo" class="panel-collapse collapse">
-                        <div class="list-group">
-                            <a id="item2" class="list-group-item" href="#">现有资质</a>
-                        </div>
-                    </div>
-                </div>
+                <!--<div class="panel panel-default">-->
+                    <!--<div class="panel-heading">-->
+                        <!--<h4 class="panel-title"><a href="#collapsetwo" data-parent="#accordion" data-toggle="collapse">资质信息</a></h4>-->
+                    <!--</div>-->
+                    <!--<div id="collapsetwo" class="panel-collapse collapse">-->
+                        <!--<div class="list-group">-->
+                            <!--<a id="item2" class="list-group-item" href="#">安全经费</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title"><a href="#collapsethree" data-parent="accordion" data-toggle="collapse">企业危险源</a></h4>
@@ -275,13 +276,111 @@
                 </div>
             </div>
         </div>
+        <!--去除了main-->
         <div id="rightcontent" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <div id="content_item0" class="container-fluid  ">
-                <h2 class="sub-header">企业信息列表</h2>
-                    <div class="table-responsive">
-                        <table id="table" class="table table-bordered">
-                        </table>
+            <div id="content_item0" class="container-fluid">
+                <h2 class="sub-header">企业列表</h2>
+                <div id="toolbar0">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="button">新增<span class="glyphicon glyphicon-plus"></span></button>
+                        <button class="btn btn-default" type="button" data-target="#deletemodal" data-toggle="modal">删除<span class="glyphicon glyphicon-remove"></span></button>
+                        <button class="btn btn-default" type="button" data-target="#xiugaimodal" data-toggle="modal">修改<span class="glyphicon glyphicon-pencil"></span></button>
                     </div>
+                </div>
+                    <div class="table-responsive">
+                        <table id="table" class="table table-hover"></table>
+                    </div>
+            </div>
+            <div id="content_item1" class="container-fluid hidden">
+                <h2 class="sub-header">企业资质情况</h2>
+                <div id="toolbar1" >
+                    <div class="input-group" style="width:350px">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">请选择<span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">企业名称</a></li>
+                                <li><a href="#">企业编号</a></li>
+                            </ul>
+                            <!--<label class="control-label">选择企业</label>-->
+                            <!--<select class="form-control">-->
+                                <!--<option value="" selected>企业名称</option>-->
+                                <!--<option value="">企业编号</option>-->
+                            <!--</select>-->
+                        </div>
+                        <input type="text" class="form-control" placeholder="输入查询条件">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary">搜索</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="table1" class="table table-hover"
+                           data-toggle="table"
+                           data-url="data/tablejson.json"
+                           data-toolbar="#toolbar1"
+                           data-show-refresh="true"
+                           data-show-toggle="true"
+                           data-show-columns="true"
+                           data-pagination="true"
+                           data-page-size="15"
+                           data-page-list="[15,30,50]"
+                           data-search="true">
+                        <thead>
+                        <tr>
+                            <th data-field="id">ID</th>
+                            <th data-field="zzbh">资质编号</th>
+                            <th data-field="zzmc">资质名称</th>
+                            <th data-field="status">当前状态</th>
+                            <th data-field="pzdate">批准日期</th>
+                            <th data-field="yxdate">有效日期</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div id="content_item2" class="container-fluid hidden">
+                <h2 class="sub-header">安全经费情况</h2>
+                <!--<div id="toolbar2">-->
+                    <!--<div class="btn-group">-->
+                        <!--<button class="btn btn-primary" type="button">新增<span class="glyphicon glyphicon-plus"></span></button>-->
+                        <!--<button class="btn btn-default" type="button" data-target="#deletemodal" data-toggle="modal">删除<span class="glyphicon glyphicon-remove"></span></button>-->
+                        <!--<button class="btn btn-default" type="button" data-target="#xiugaimodal" data-toggle="modal">修改<span class="glyphicon glyphicon-pencil"></span></button>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="table-responsive">
+                    <table id="table2" class="table table-hover"
+                           data-toggle="table"
+                           data-url="data/tablejson.json"
+
+                           data-show-refresh="true"
+                           data-show-toggle="true"
+                           data-show-columns="true"
+                           data-pagination="true"
+                           data-page-size="15"
+                           data-page-list="[15,30,50]"
+                           data-search="true">
+                        <thead>
+                        <tr>
+                            <th data-field="id" rowspan="2">ID</th>
+                            <th data-field="" rowspan="2">年份</th>
+                            <th data-field="" rowspan="2">投入资金总额</th>
+                            <th data-field="" rowspan="2">同期年总收入</th>
+                            <th data-field="" colspan="8">投入分类</th>
+
+                        </tr>
+                        <tr>
+                            <th data-field="">工艺改造投入</th>
+                            <th data-field="">安全评价投入</th>
+                            <th data-field="">劳保用品投入	</th>
+                            <th data-field="">安全教育投入</th>
+                            <th data-field="">隐患整改投入</th>
+                            <th data-field="">安全科研投入</th>
+                            <th data-field="">安全技改投入</th>
+                            <th data-field="">其他安全投入</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
             <div id="content_item3" class="container-fluid hidden">
                 <div class="panel panel-primary" style="margin-top: 50px;">
@@ -292,7 +391,6 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <a class="thumbnail">
-
                                     <img src="img/储罐.png"/>
                                 </a>
                                 <div class="caption">
@@ -300,9 +398,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-4">
-
                                 <a class="thumbnail">
-
                                     <img src="img/库区1.png"/>
                                 </a>
                                 <div class="caption">
@@ -311,19 +407,16 @@
                             </div>
                             <div class="col-lg-4">
                                 <a class="thumbnail">
-
                                     <img src="img/工业锅炉.png"/>
                                 </a>
                                 <div class="caption">
                                     <h3 class="text-center">工业锅炉</h3>
                                 </div>
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col-lg-4">
                                 <a href="#" class="thumbnail">
-
                                     <img src="img/管道.png"/></a>
                                 <div class="caption">
                                     <h3 class="text-center">压力管道</h3>
@@ -331,7 +424,6 @@
                             </div>
                             <div class="col-lg-4">
                                 <a href="#" class="thumbnail">
-
                                     <img src="img/煤矿.png"/>
                                 </a>
                                 <div class="caption">
@@ -340,7 +432,6 @@
                             </div>
                             <div class="col-lg-4">
                                 <a href="#" class="thumbnail">
-
                                     <img src="img/金属行情.png"/>
                                 </a>
                                 <div class="caption">
@@ -351,7 +442,6 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <a href="#" class="thumbnail">
-
                                     <img src="img/废金属.png"/>
                                 </a>
                                 <div class="caption">
@@ -368,7 +458,6 @@
                             </div>
                             <div class="col-lg-4">
                                 <a href="#" class="thumbnail">
-
                                     <img src="img/危险.png"/></a>
                                 <div class="caption">
                                     <h3 class="text-center">压力容器</h3>
@@ -377,12 +466,9 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
-
 </body>
 </html>
