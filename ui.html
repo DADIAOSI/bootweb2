@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/webcss.css">
+    <style>
+        .jumu{
+            text-align: center;
+            background-repeat: repeat-x;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            background: url("http://www.pp3.cn/uploads/1304/47.jpg");
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <script src="js/bootstrap-table.min.js"></script>
+    <script src="js/webjs.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="jumbotron jumu">
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-md-2">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#collapseone" data-parent="#accordion" data-toggle="collapse">企业信息管理</a></h4>
+                    </div>
+                    <div id="collapseone" class="panel-collapse collapse">
+                        <div class="list-group">
+                            <a id="item0" class="list-group-item active" href="#">企业信息</a>
+                            <a id="item1" class="list-group-item" href="#">资质情况</a>
+                            <a id="item2" class="list-group-item" href="#">安全经费</a>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="panel panel-default">-->
+                <!--<div class="panel-heading">-->
+                <!--<h4 class="panel-title"><a href="#collapsetwo" data-parent="#accordion" data-toggle="collapse">资质信息</a></h4>-->
+                <!--</div>-->
+                <!--<div id="collapsetwo" class="panel-collapse collapse">-->
+                <!--<div class="list-group">-->
+                <!--<a id="item2" class="list-group-item" href="#">安全经费</a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapsetwo">事故隐患</a></h4>
+                    </div>
+                    <div id="collapsetwo" class="panel-collapse collapse">
+                        <div class="list-group">
+                            <a id="item4" href="#" class="list-group-item">隐患信息</a>
+                            <a id="item5" href="#" class="list-group-item">危险源目录</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#collapsethree" data-parent="accordion" data-toggle="collapse">企业危险源</a></h4>
+                    </div>
+                    <div id="collapsethree" class="panel-collapse collapse">
+                        <a id="item3" class="list-group-item" href="#">危险源分类</a>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">无人机污染检测</a></h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse">
+                        <div class="list-group">
+                            <a id="item7" href="#" class="list-group-item">无人机数据采集</a>
+                            <a id="item8"href="#" class="list-group-item">历史数据</a>
+                            <a id="item9"href="#" class="list-group-item">数据管理</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#collapsefour" data-toggle="collapse" data-parent="accordion">系统管理</a></h4>
+                    </div>
+                    <div id="collapsefour" class="panel-collapse collapse">
+                        <a href="#" id="item6" class="list-group-item">数据管理</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rightcontent" class="col-sm-9 col-md-10">
+            <div id="content_item0" class="container-fluid">
+                <h2 class="sub-header">企业列表</h2>
+                <div id="toolbar0">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="button">新增<span class="glyphicon glyphicon-plus"></span></button>
+                        <!--<button class="btn btn-default" type="button" data-target="#deletemodal" data-toggle="modal">删除<span class="glyphicon glyphicon-remove"></span></button>-->
+                        <!--<button class="btn btn-default" type="button" data-target="#xiugaimodal" data-toggle="modal">修改<span class="glyphicon glyphicon-pencil"></span></button>-->
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="table" class="table table-hover"></table>
+                </div>
+            </div>
+            <div id="content_item1" class="container-fluid hidden">
+                <h2 class="sub-header">企业资质情况</h2>
+                <div id="toolbar1" >
+                    <div class="input-group" style="width:350px">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">请选择<span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">企业名称</a></li>
+                                <li><a href="#">企业编号</a></li>
+                            </ul>
+                            <!--<label class="control-label">选择企业</label>-->
+                            <!--<select class="form-control">-->
+                            <!--<option value="" selected>企业名称</option>-->
+                            <!--<option value="">企业编号</option>-->
+                            <!--</select>-->
+                        </div>
+                        <input type="text" class="form-control" placeholder="输入查询条件">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary">搜索</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="table1" class="table table-hover"
+                           data-toggle="table"
+                           data-url="data/tablejson.json"
+                           data-toolbar="#toolbar1"
+                           data-show-refresh="true"
+                           data-show-toggle="true"
+                           data-show-columns="true"
+                           data-pagination="true"
+                           data-page-size="15"
+                           data-page-list="[15,30,50]"
+                           data-search="true">
+                        <thead>
+                        <tr>
+                            <th data-field="id">ID</th>
+                            <th data-field="zzzsbh">资质证书编号</th>
+                            <th data-field="zzmc">资质名称</th>
+                            <th data-field="zzjb">资质级别</th>
+                            <th data-field="status">当前状态</th>
+                            <th data-field="zzpzrq">资质批准日期</th>
+                            <th data-field="zzyxq">资质有效期</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div id="content_item2" class="container-fluid hidden">
+                <h2 class="sub-header">安全经费情况</h2>
+                <!--<div id="toolbar2">-->
+                <!--<div class="btn-group">-->
+                <!--<button class="btn btn-primary" type="button">新增<span class="glyphicon glyphicon-plus"></span></button>-->
+                <!--<button class="btn btn-default" type="button" data-target="#deletemodal" data-toggle="modal">删除<span class="glyphicon glyphicon-remove"></span></button>-->
+                <!--<button class="btn btn-default" type="button" data-target="#xiugaimodal" data-toggle="modal">修改<span class="glyphicon glyphicon-pencil"></span></button>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="table-responsive">
+                    <table id="table2" class="table table-hover"
+                           data-toggle="table"
+                           data-url="data/tablejson.json"
+
+                           data-show-refresh="true"
+                           data-show-toggle="true"
+                           data-show-columns="true"
+                           data-pagination="true"
+                           data-page-size="15"
+                           data-page-list="[15,30,50]"
+                           data-search="true">
+                        <thead>
+                        <tr>
+                            <th data-field="id" rowspan="2">ID</th>
+                            <th data-field="trbh" rowspan="2">年份</th>
+                            <th data-field="yjtrzj" rowspan="2">投入资金总额</th>
+                            <th data-field="yjtrzj" rowspan="2">同期年总收入</th>
+                            <th colspan="8" class="text-center">投入分类</th>
+
+                        </tr>
+                        <tr>
+                            <th data-field="gysbgztr">工艺改造投入</th>
+                            <th data-field="aqpjtr">安全评价投入</th>
+                            <th data-field="nbyptr">劳保用品投入	</th>
+                            <th data-field="aqjytr">安全教育投入</th>
+                            <th data-field="aqjytr">隐患整改投入</th>
+                            <th data-field="aqkytr">安全科研投入</th>
+                            <th data-field="aqjgtr">安全技改投入</th>
+                            <th data-field="qtaqtr">其他安全投入</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div id="content_item3" class="container-fluid hidden">
+                <h2 class="sub-header">危险源信息列表</h2>
+                <div class="table-responsive"> 
+                    <table id="" class="table table-hover"
+                           data-toggle="table"
+                           data-url="data/tablejson.json"
+                           data-show-refresh="true"
+                           data-show-toggle="true"
+                           data-show-columns="true"
+                           data-pagination="true"
+                           data-page-size="15"
+                           data-page-list="[15,30,50]"
+                           data-search="true">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

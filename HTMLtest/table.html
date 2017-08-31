@@ -13,6 +13,7 @@
             margin-left: 5px;
         }
     </style>
+
 </head>
 <body>
 <!--详细信息模态栏-->
@@ -152,6 +153,14 @@
 
     </div>
 </div>
+<div class="container" style="width: 100%;height: 100px;background-color: #4cae4c" data-toggle="context" data-target="#context-menu" id="yu">
+    <div id="context-menu">
+        <ul class="dropdown-menu" role="menu">
+            <li><a tabindex="-1" href="#" operator="top">插入此行上面</a></li>
+            <li><a tabindex="-1" href="#" operator="bottom">插入此行下面</a></li>
+        </ul>
+    </div>
+</div>
 <input type="checkbox">
 <form>
     <input required type="text" title="adw" pattern="[1-9]\d{5}(?!\d)" class="form-control">
@@ -160,6 +169,32 @@
 <a href="#" class="btn btn-primary btn-sm" data-target="#xiugaimodal" data-toggle="modal">修改<li class="glyphicon glyphicon-pencil"></li></a>
 </body>
 <script>
+    $(document).ready(function () {
+        $('#yu').bind(click,function (e) {
+            return false;
+        });
+
+        var menu = new BootstrapMenu('#demo1Box', {
+            actions: [{
+                name: 'Action',
+                onClick: function() {
+                    toastr.info("'Action' clicked!");
+                }
+            }, {
+                name: 'Another action',
+                onClick: function() {
+                    toastr.info("'Another action' clicked!");
+                }
+            }, {
+                name: 'A third action',
+                onClick: function() {
+                    toastr.info("'A third action' clicked!");
+                }
+            }]
+        });
+
+
+    })
     $('tr td:even').css({"width":"15%"});
 
     $('#table').bootstrapTable({

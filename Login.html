@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        .login{
+
+            text-align: center;
+            padding-top: 200px;
+        }
+        .btnlogin{
+            width: 40%;
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="login">
+                <div class="form-top">
+                    <h3>用户登录</h3>
+                    <p></p>
+                </div>
+                <div class="form-bottom">
+                    <form action="#">
+                        <div class="form-group">
+                            <label class="sr-only" for="form-username">用户名</label>
+                            <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-password">密码</label>
+                            <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option value="0" selected>普通用户</option>
+                                <option value="1">管理员</option>
+                            </select>
+                        </div>
+                        <div class="btn-group btn-group-justified">
+                            <div class="btn-group">
+                                <button class="btn btn-primary" type="submit">登录</button>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-primary" type="button">注册</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

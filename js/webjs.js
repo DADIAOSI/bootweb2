@@ -47,6 +47,7 @@ $(document).ready(function () {
         editable:true,//开启编辑模式
         clickToSelect: true,
         toolbar:'#toolbar0',
+       // toolbarAlign:'right',
         cache: false,//设置为 false 禁用 AJAX 数据缓存
         showToggle:true, //显示切换按钮来切换表/卡片视图。
         showPaginationSwitch:false, //显示分页切换按钮
