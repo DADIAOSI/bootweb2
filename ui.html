@@ -198,27 +198,43 @@
             </div>
             <div id="content_item3" class="container-fluid hidden">
                 <h2 class="sub-header">危险源信息列表</h2>
+                <div id="toolbar3">
+                    <form>
+                        <div class="form-inline">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="请输入查询企业名称">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default">搜索</button>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option value="-1">下拉选择公司</option>
+                                    <option value="0">公司01</option>
+                                    <option value="1">公司02</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div class="table-responsive"> 
                     <table id="" class="table table-hover"
                            data-toggle="table"
                            data-url="data/tablejson.json"
+                           data-toolbar="#toolbar3"
                            data-show-refresh="true"
-                           data-show-toggle="true"
-                           data-show-columns="true"
                            data-pagination="true"
                            data-page-size="15"
                            data-page-list="[15,30,50]"
                            data-search="true">
                         <thead>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <th data-field="">危险源编号</th>
+                                <th data-field="">危险源种类</th>
+                                <th data-field="">企业名称</th>
+                                <th data-field="">地址</th>
                             </tr>
                         </thead>
-                        
                     </table>
                 </div>
             </div>

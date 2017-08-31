@@ -13,6 +13,7 @@
             margin-left: 5px;
         }
     </style>
+    <script src="../js/bootstrap-contextmenu.js"></script>
 
 </head>
 <body>
@@ -142,7 +143,7 @@
                data-search="true">
             <thead>
             <tr>
-                <th data-field="state" data-checkbox="true"></th>
+                <!--<th data-field="state" data-checkbox="true"></th>-->
                 <th data-field="id">ID</th>
                 <th data-field="name">企业名称</th>
                 <th data-field="address">地址</th>
@@ -170,6 +171,14 @@
 </body>
 <script>
     $(document).ready(function () {
+//        $('#table').bootstrapTable({
+//            onDblClickRow:function (e,row,ele,filed) {
+//                alert(row.id);
+//            }
+//        });
+        $('#table1').on('dbl-click-row.bs.table',function (e,row,ele,filed) {
+            alert(row.name);
+        });
         $('#yu').bind(click,function (e) {
             return false;
         });
