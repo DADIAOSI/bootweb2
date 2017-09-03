@@ -48,4 +48,9 @@
 a[class='btn btn-primary btn-sm']{
     margin-left: 5px;
 }
+#zhmnTable > th,td{
+    width: 50px;
+    text-align: center;
+}
+
 
