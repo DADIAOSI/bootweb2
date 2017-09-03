@@ -168,6 +168,22 @@
 </form>
 
 <a href="#" class="btn btn-primary btn-sm" data-target="#xiugaimodal" data-toggle="modal">修改<li class="glyphicon glyphicon-pencil"></li></a>
+<div class="container" id="info" style="width: 100%;height: 100px;"  data-toggle="context" data-target="#context-menu2">
+    <div class="btn-group">
+        <button class="btn btn-info">item</button>
+        <button class="btn  btn-info">item</button>
+        <button class="btn btn-info" >item</button>
+    </div>
+    <div id="context-menu2">
+        <ul class="dropdown-menu" role="menu">
+            <li><a tabindex="-1">Action</a></li>
+            <li><a tabindex="-1">Another action</a></li>
+            <li><a tabindex="-1">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a tabindex="-1">Separated link</a></li>
+        </ul>
+    </div>
+</div>
 </body>
 <script>
     $(document).ready(function () {
@@ -205,6 +221,17 @@
 
     })
     $('tr td:even').css({"width":"15%"});
+    var mean=new Boots
+    $('#info').contextmenu({
+        target:'#context-menu2',
+        before:function (e,element,content) {
+            return false;
+            
+        },
+        onItem:function (content,e) {
+            
+        }
+    });
 
     $('#table').bootstrapTable({
         url:'data/tablejson.json',

@@ -34,7 +34,6 @@
     </div>
 </nav>
 <!--登录界面-->
-
 <div class="modal fade" tabindex="-1 " role="dialog" aria-describedby="mydialogmodal" id="mymodal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -269,45 +268,13 @@
                 <!--</div>-->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapsetwo">事故隐患</a></h4>
-                    </div>
-                    <div id="collapsetwo" class="panel-collapse collapse">
-                            <div class="list-group">
-                                <a id="item4" href="#" class="list-group-item">隐患信息</a>
-                                <a id="item5" href="#" class="list-group-item">危险源目录</a>
-                            </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
                         <h4 class="panel-title"><a href="#collapsethree" data-parent="accordion" data-toggle="collapse">企业危险源</a></h4>
                     </div>
                     <div id="collapsethree" class="panel-collapse collapse">
                         <a id="item3" class="list-group-item" href="#">危险源分类</a>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">无人机污染检测</a></h4>
-                    </div>
-                    <div id="collapseFive" class="panel-collapse collapse">
-                            <div class="list-group">
-                                <a id="item7" href="#" class="list-group-item">无人机数据采集</a>
-                                <a id="item8"href="#" class="list-group-item">历史数据</a>
-                                <a id="item9"href="#" class="list-group-item">数据管理</a>
-                            </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title"><a href="#collapsefour" data-toggle="collapse" data-parent="accordion">系统管理</a></h4>
-                    </div>
-                    <div id="collapsefour" class="panel-collapse collapse">
-                        <a href="#" id="item6" class="list-group-item">数据管理</a>
-                    </div>
-                </div>
             </div>
-
         </div>
         <!--去除了main-->
         <div id="rightcontent" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -316,8 +283,8 @@
                 <div id="toolbar0">
                     <div class="btn-group">
                         <button class="btn btn-primary" type="button">新增<span class="glyphicon glyphicon-plus"></span></button>
-                        <!--<button class="btn btn-default" type="button" data-target="#deletemodal" data-toggle="modal">删除<span class="glyphicon glyphicon-remove"></span></button>-->
-                        <!--<button class="btn btn-default" type="button" data-target="#xiugaimodal" data-toggle="modal">修改<span class="glyphicon glyphicon-pencil"></span></button>-->
+                        <button class="btn btn-default" type="button" data-target="#deletemodal" data-toggle="modal">删除<span class="glyphicon glyphicon-remove"></span></button>
+                        <button class="btn btn-default" type="button" data-target="#xiugaimodal" data-toggle="modal">修改<span class="glyphicon glyphicon-pencil"></span></button>
                     </div>
                 </div>
                     <div class="table-responsive">
@@ -330,9 +297,9 @@
                     <div class="input-group" style="width:350px">
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">请选择<span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">企业名称</a></li>
-                                <li><a href="#">企业编号</a></li>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a role="menuitem" href="#">企业名称</a></li>
+                                <li><a role="menuitem" href="#">企业编号</a></li>
                             </ul>
                             <!--<label class="control-label">选择企业</label>-->
                             <!--<select class="form-control">-->
@@ -372,7 +339,7 @@
                     </table>
                 </div>
             </div>
-            <div id="content_item2" class="container hidden">
+            <div id="content_item2" class="container-fluid hidden">
                 <h2 class="sub-header">安全经费情况</h2>
                 <!--<div id="toolbar2">-->
                     <!--<div class="btn-group">-->
@@ -385,7 +352,6 @@
                     <table id="table2" class="table table-hover"
                            data-toggle="table"
                            data-url="data/tablejson.json"
-
                            data-show-refresh="true"
                            data-show-toggle="true"
                            data-show-columns="true"
@@ -395,7 +361,7 @@
                            data-search="true">
                         <thead>
                         <tr>
-                            <th data-field="id" rowspan="2">ID</th>
+                            <th data-field="id" rowspan="2"></th>
                             <th data-field="trbh" rowspan="2">年份</th>
                             <th data-field="yjtrzj" rowspan="2">投入资金总额</th>
                             <th data-field="yjtrzj" rowspan="2">同期年总收入</th>
@@ -417,13 +383,14 @@
                 </div>
             </div>
             <div id="content_item3" class="container-fluid hidden">
-                <div class="panel panel-default" style="margin-top: 50px;">
+                <div class="panel panel-primary" style="margin-top: 50px;">
                     <div class="panel-heading">
                         危险品分类
                     </div>
                     <div class="panel-body">
+
                         <div class="row">
-                            <div class="col-lg-2">
+                            <div class="col-lg-4">
                                 <a class="thumbnail">
                                     <img src="img/储罐.png"/>
                                 </a>
@@ -431,64 +398,15 @@
                                     <h3 class="text-center">储罐区</h3>
                                 </div>
                             </div>
-                            <div class="col-lg-2">
-                                <a class="thumbnail">
-                                    <img src="img/库区1.png"/>
-                                </a>
-                                <div class="caption">
-                                    <h3 class="text-center">库区</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <a class="thumbnail">
-                                    <img src="img/工业锅炉.png"/>
-                                </a>
-                                <div class="caption">
-                                    <h3 class="text-center">工业锅炉</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <a href="#" class="thumbnail">
-                                    <img src="img/管道.png"/></a>
-                                <div class="caption">
-                                    <h3 class="text-center">压力管道</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <a href="#" class="thumbnail">
-                                    <img src="img/煤矿.png"/>
-                                </a>
-                                <div class="caption">
-                                    <h3 class="text-center">煤矿</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <a href="#" class="thumbnail">
-                                    <img src="img/金属行情.png"/>
-                                </a>
-                                <div class="caption">
-                                    <h3 class="text-center">金属矿</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <a href="#" class="thumbnail">
-                                    <img src="img/废金属.png"/>
-                                </a>
-                                <div class="caption">
-                                    <h3 class="text-center">尾矿区</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <a href="#" class="thumbnail">
-                                    <img src="img/生产.png"/>
-                                </a>
-                                <div class="caption">
-                                    <h3 class="text-center">危险生产场所</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
+                            <!--<div class="col-lg-4">-->
+                                <!--<a class="thumbnail">-->
+                                    <!--<img src="img/库区1.png"/>-->
+                                <!--</a>-->
+                                <!--<div class="caption">-->
+                                    <!--<h3 class="text-center">库区</h3>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <div class="col-lg-4">
                                 <a href="#" class="thumbnail">
                                     <img src="img/危险.png"/></a>
                                 <div class="caption">
@@ -496,6 +414,56 @@
                                 </div>
                             </div>
                         </div>
+                        <!--<div class="row">-->
+                            <!--<div class="col-lg-4">-->
+                                <!--<a href="#" class="thumbnail">-->
+                                    <!--<img src="img/管道.png"/></a>-->
+                                <!--<div class="caption">-->
+                                    <!--<h3 class="text-center">压力管道</h3>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-lg-4">-->
+                                <!--<a href="#" class="thumbnail">-->
+                                    <!--<img src="img/煤矿.png"/>-->
+                                <!--</a>-->
+                                <!--<div class="caption">-->
+                                    <!--<h3 class="text-center">煤矿</h3>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-lg-4">-->
+                                <!--<a href="#" class="thumbnail">-->
+                                    <!--<img src="img/金属行情.png"/>-->
+                                <!--</a>-->
+                                <!--<div class="caption">-->
+                                    <!--<h3 class="text-center">金属矿</h3>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-lg-4">-->
+                                <!--<a href="#" class="thumbnail">-->
+                                    <!--<img src="img/废金属.png"/>-->
+                                <!--</a>-->
+                                <!--<div class="caption">-->
+                                    <!--<h3 class="text-center">尾矿区</h3>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-lg-4">-->
+                                <!--<a href="#" class="thumbnail">-->
+                                    <!--<img src="img/生产.png"/>-->
+                                <!--</a>-->
+                                <!--<div class="caption">-->
+                                    <!--<h3 class="text-center">危险生产场所</h3>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-lg-4">-->
+                                <!--<a href="#" class="thumbnail">-->
+                                    <!--<img src="img/危险.png"/></a>-->
+                                <!--<div class="caption">-->
+                                    <!--<h3 class="text-center">压力容器</h3>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
                     </div>
                 </div>
             </div>
