@@ -83,8 +83,11 @@ $(document).ready(function () {
                 title: '企业名称'
 
             }, {
+                field:'',
+                title:'行业类别'
+            },{
                 field: 'address',
-                title: '地址'
+                title: '所在地'
             },{
                 field:'xxxxid',
                 title:'数据操作',
