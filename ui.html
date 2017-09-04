@@ -161,6 +161,44 @@
             <div class="modal-body">
                 <div class="table-responsive">
                     <form>
+                        <div class="row">
+                            <div class="container form-inline">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="fs">风速:</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="fs" name="fs">
+                                            <span class="input-group-addon">
+                                            m/s
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="xlyq">泄露源强:</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="xlyq" name="xlyq">
+                                            <span class="input-group-addon">
+                                            mg/s
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="fx">风向:</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="fx" name="fx">
+                                            <span class="input-group-addon">
+                                            米/秒
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                         <table id="zhmnTable" class="table table-bordered">
                             <thead>
                             <tr>
@@ -178,12 +216,46 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <td><input type="radio" name="" value="d"><2</td>
-                            <td>A</td>
-                            <td>A-B</td>
-                            <td>B</td>
-                            <td>F</td>
-                            <td>F</td>
+                                <tr>
+                                    <td><input type="radio" name="radio" value="<2"><2</td>
+                                    <td><input type="radio" name="radio" value="A">A</td>
+                                    <td><input type="radio" name="radio" value="A-B">A-B</td>
+                                    <td><input type="radio" name="radio" value="B">B</td>
+                                    <td><input type="radio" name="radio" value="F">F</td>
+                                    <td><input type="radio" name="radio" value="F">F</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="radio" name="radio" value="">2-3</td>
+                                    <td><input type="radio" name="radio" value="">A-B</td>
+                                    <td><input type="radio" name="radio" value="">B</td>
+                                    <td><input type="radio" name="radio" value="">C</td>
+                                    <td><input type="radio" name="radio" value="">E</td>
+                                    <td><input type="radio" name="radio" value="">F</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="radio" name="radio" value="">3-5</td>
+                                    <td><input type="radio" name="radio" value="">B</td>
+                                    <td><input type="radio" name="radio" value="">B-C</td>
+                                    <td><input type="radio" name="radio" value="">C</td>
+                                    <td><input type="radio" name="radio" value="">E</td>
+                                    <td><input type="radio" name="radio" value="">F</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="radio" name="radio" value="">5-6</td>
+                                    <td><input type="radio" name="radio" value="">C</td>
+                                    <td><input type="radio" name="radio" value="">C-D</td>
+                                    <td><input type="radio" name="radio" value="">D</td>
+                                    <td><input type="radio" name="radio" value="">D</td>
+                                    <td><input type="radio" name="radio" value="">D</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="radio" name="radio" value=""><6</td>
+                                    <td><input type="radio" name="radio" value="">C</td>
+                                    <td><input type="radio" name="radio" value="">D</td>
+                                    <td><input type="radio" name="radio" value="">D</td>
+                                    <td><input type="radio" name="radio" value="">D</td>
+                                    <td><input type="radio" name="radio" value="">D</td>
+                                </tr>
                             </tbody>
                         </table>
                     </form>
@@ -425,7 +497,7 @@
                 <!--</div>-->
                 <!--</div>-->
                 <div class="table-responsive">
-                    <table id="table2" class="table table-hover"
+                    <table id="table2" class="table table-bordered"
                            data-toggle="table"
                            data-url="data/tablejson.json"
 
@@ -604,7 +676,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a tabindex="-1" href="#">新增企业</a></li>
                         <li><a tabindex="-1" href="#">新增危险源</a></li>
-                        <li><a tabindex="-1" id="zhmn">灾害模拟</a></li>
+                        <li><a tabindex="-1" href="#" id="zhmn">灾害模拟</a></li>
                         <li><a tabindex="-1" href="#">实时分析</a></li>
                     </ul>
                 </div>
@@ -614,7 +686,6 @@
         </div>
     </div>
 </div>
-
 </body>
 <script>
     $(document).ready(function () {
