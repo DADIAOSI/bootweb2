@@ -2,38 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>企业信息管理</title>
+    <title>企业危险源管理</title>
     <script src="js/jquery-3.2.1.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/bootstrap.js"></script>
-    <script src="js/webjs.js"></script>
-    <link rel="stylesheet" href="css/bootstrap-table.min.css">
     <link rel="stylesheet" href="css/webcss.css">
+    <style>
+        .jumu{
+            text-align: center;
+            background-repeat: repeat-x;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            background: url("http://www.pp3.cn/uploads/1304/47.jpg");
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
     <script src="js/bootstrap-table.min.js"></script>
+    <script src="js/webjs.js"></script>
+    <script src="js/bootstrap-contextmenu.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top ">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">基于无人机的危险源管理系统</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">网站首页</a></li>
-                <li><a data-target="#mymodal" data-toggle="modal">用户登录</a></li>
-                <li><a href="#">系统维护</a></li>
-                <li><a href="#">帮助</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!--登录界面-->
 <div class="modal fade" tabindex="-1 " role="dialog" aria-describedby="mydialogmodal" id="mymodal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -138,7 +126,7 @@
                 </div>
             </div>
             <!--<div class="modal-footer">-->
-                <!--<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>-->
+            <!--<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>-->
 
             <!--</div>-->
         </div>
@@ -161,6 +149,238 @@
             </div>
         </div>
     </div>
+</div>
+<!--灾害模拟-->
+<div id="zhmnmodal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">请输入参数</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-pills nav-justified">
+                    <li class="active"><a href="#one" data-toggle="tab">危害气体持续泄露</a></li>
+                    <li><a href="#two" data-toggle="tab">危害气体瞬时泄露</a></li>
+                    <li><a href="#three" data-toggle="tab">压力容器物理爆炸</a></li>
+                    <li><a href="#four" data-toggle="tab">蒸汽云爆炸</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="one" class="tab-pane fade active in">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="control-label" for="fs">风速:</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="fs" name="fs">
+                                                    <span class="input-group-addon">
+                                            m/s
+                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="control-label" for="xlyq">泄露源强:</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="xlyq" name="xlyq">
+                                                    <span class="input-group-addon">
+                                                mg/s
+                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="control-label" for="fx">风向:</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="fx" name="fx" placeholder="正北:0或360度(顺时针)">
+                                                    <span class="input-group-addon">
+                                            度
+                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table id="hjcs1Table" class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="1"></th>
+                                            <th colspan="3">白天日照</th>
+                                            <th colspan="2">夜间条件</th>
+                                        </tr>
+                                        <tr>
+                                            <th>表面风速</th>
+                                            <th>强</th>
+                                            <th>中</th>
+                                            <th>弱</th>
+                                            <th>云覆盖大于4/8</th>
+                                            <th>云覆盖大于3/8</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><input type="radio" name="radio" value="<2"><2</td>
+                                            <td><input type="radio" name="radio" value="A">A</td>
+                                            <td><input type="radio" name="radio" value="A-B">A-B</td>
+                                            <td><input type="radio" name="radio" value="B">B</td>
+                                            <td><input type="radio" name="radio" value="F">F</td>
+                                            <td><input type="radio" name="radio" value="F">F</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="radio" name="radio" value="">2-3</td>
+                                            <td><input type="radio" name="radio" value="">A-B</td>
+                                            <td><input type="radio" name="radio" value="">B</td>
+                                            <td><input type="radio" name="radio" value="">C</td>
+                                            <td><input type="radio" name="radio" value="">E</td>
+                                            <td><input type="radio" name="radio" value="">F</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="radio" name="radio" value="">3-5</td>
+                                            <td><input type="radio" name="radio" value="">B</td>
+                                            <td><input type="radio" name="radio" value="">B-C</td>
+                                            <td><input type="radio" name="radio" value="">C</td>
+                                            <td><input type="radio" name="radio" value="">E</td>
+                                            <td><input type="radio" name="radio" value="">F</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="radio" name="radio" value="">5-6</td>
+                                            <td><input type="radio" name="radio" value="">C</td>
+                                            <td><input type="radio" name="radio" value="">C-D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="radio" name="radio" value=""><6</td>
+                                            <td><input type="radio" name="radio" value="">C</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="two" class="tab-pane fade">
+                        <div class="panel-body">
+
+                        </div>
+                    </div>
+                    <div id="three" class="tab-pane fade">
+                        <div class="panel-body">
+
+                        </div>
+                    </div>
+                    <div id="four" class="tab-pane fade">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="control-label" for="rlrsr">燃料燃烧热:</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="rlrsr" name="rlrsr">
+                                                    <span class="input-group-addon">
+                                            KJ/kg
+                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="control-label" for="trqzl">参与爆炸的液化天然气质量:</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="trqzl" name="trqzl">
+                                                    <span class="input-group-addon">
+                                                kg
+                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <table id="hjcs4Table" class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="1"></th>
+                                            <th colspan="3">白天日照</th>
+                                            <th colspan="2">夜间条件</th>
+                                        </tr>
+                                        <tr>
+                                            <th>表面风速</th>
+                                            <th>强</th>
+                                            <th>中</th>
+                                            <th>弱</th>
+                                            <th>云覆盖大于4/8</th>
+                                            <th>云覆盖大于3/8</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><input type="radio" name="radio" value="<2"><2</td>
+                                            <td><input type="radio" name="radio" value="A">A</td>
+                                            <td><input type="radio" name="radio" value="A-B">A-B</td>
+                                            <td><input type="radio" name="radio" value="B">B</td>
+                                            <td><input type="radio" name="radio" value="F">F</td>
+                                            <td><input type="radio" name="radio" value="F">F</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="radio" name="radio" value="">2-3</td>
+                                            <td><input type="radio" name="radio" value="">A-B</td>
+                                            <td><input type="radio" name="radio" value="">B</td>
+                                            <td><input type="radio" name="radio" value="">C</td>
+                                            <td><input type="radio" name="radio" value="">E</td>
+                                            <td><input type="radio" name="radio" value="">F</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="radio" name="radio" value="">3-5</td>
+                                            <td><input type="radio" name="radio" value="">B</td>
+                                            <td><input type="radio" name="radio" value="">B-C</td>
+                                            <td><input type="radio" name="radio" value="">C</td>
+                                            <td><input type="radio" name="radio" value="">E</td>
+                                            <td><input type="radio" name="radio" value="">F</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="radio" name="radio" value="">5-6</td>
+                                            <td><input type="radio" name="radio" value="">C</td>
+                                            <td><input type="radio" name="radio" value="">C-D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="radio" name="radio" value=""><6</td>
+                                            <td><input type="radio" name="radio" value="">C</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                            <td><input type="radio" name="radio" value="">D</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">确认</button>
+                <button type="button" class="btn btn-primary">取消</button>
+            </div>
+        </div>
+    </div>
+
 </div>
 <!--修改模态栏-->
 <div id="xiugaimodal" class="modal fade" tabindex="-1" role="dialog" >
@@ -234,15 +454,17 @@
                 </div>
             </div>
             <!--<div class="modal-footer">-->
-                <!--<button  type="button" class="btn btn-default" data-dismiss="modal">提交</button>-->
-                <!--<button type="button" class="btn btn-primary">取消</button>-->
+            <!--<button  type="button" class="btn btn-default" data-dismiss="modal">提交</button>-->
+            <!--<button type="button" class="btn btn-primary">取消</button>-->
             <!--</div>-->
         </div>
     </div>
 </div>
 <div class="container-fluid">
+    <div class="jumbotron jumu">
+    </div>
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-3 col-md-2">
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -257,39 +479,77 @@
                     </div>
                 </div>
                 <!--<div class="panel panel-default">-->
+                <!--<div class="panel-heading">-->
+                <!--<h4 class="panel-title"><a href="#collapsetwo" data-parent="#accordion" data-toggle="collapse">资质信息</a></h4>-->
+                <!--</div>-->
+                <!--<div id="collapsetwo" class="panel-collapse collapse">-->
+                <!--<div class="list-group">-->
+                <!--<a id="item2" class="list-group-item" href="#">安全经费</a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="panel panel-default">-->
                     <!--<div class="panel-heading">-->
-                        <!--<h4 class="panel-title"><a href="#collapsetwo" data-parent="#accordion" data-toggle="collapse">资质信息</a></h4>-->
+                        <!--<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapsetwo">事故隐患</a></h4>-->
                     <!--</div>-->
                     <!--<div id="collapsetwo" class="panel-collapse collapse">-->
                         <!--<div class="list-group">-->
-                            <!--<a id="item2" class="list-group-item" href="#">安全经费</a>-->
+                            <!--<a id="item4" href="#" class="list-group-item">隐患信息</a>-->
+                            <!--<a id="item5" href="#" class="list-group-item">危险源目录</a>-->
                         <!--</div>-->
                     <!--</div>-->
                 <!--</div>-->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title"><a href="#collapsethree" data-parent="accordion" data-toggle="collapse">企业危险源</a></h4>
+                        <h4 class="panel-title"><a href="#collapsethree" data-parent="accordion" data-toggle="collapse">危险源管理</a></h4>
                     </div>
                     <div id="collapsethree" class="panel-collapse collapse">
-                        <a id="item3" class="list-group-item" href="#">危险源分类</a>
+                        <a id="item3" class="list-group-item" href="#">重大危险源</a>
+                        <!--<a id="item4" class="list-group-item" href="#">重大危险源</a>-->
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#collapsesix" data-parent="accordion" data-toggle="collapse">企业危险源监控</a></h4>
+                    </div>
+                    <div id="collapsesix" class="panel-collapse collapse">
+                        <a id="item10" href="#" class="list-group-item">事故模拟</a>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">无人机污染检测</a></h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse">
+                        <div class="list-group">
+                            <a id="item7" href="#" class="list-group-item">无人机数据采集</a>
+                            <a id="item8"href="#" class="list-group-item">历史数据</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#collapsefour" data-toggle="collapse" data-parent="accordion">系统管理</a></h4>
+                    </div>
+                    <div id="collapsefour" class="panel-collapse collapse">
+                        <a href="#" id="item6" class="list-group-item">企业登录管理</a>
                     </div>
                 </div>
             </div>
         </div>
-        <!--去除了main-->
-        <div id="rightcontent" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div id="rightcontent" class="col-sm-9 col-md-10">
             <div id="content_item0" class="container-fluid">
                 <h2 class="sub-header">企业列表</h2>
-                <div id="toolbar0">
-                    <div class="btn-group">
-                        <button class="btn btn-primary" type="button">新增<span class="glyphicon glyphicon-plus"></span></button>
-                        <button class="btn btn-default" type="button" data-target="#deletemodal" data-toggle="modal">删除<span class="glyphicon glyphicon-remove"></span></button>
-                        <button class="btn btn-default" type="button" data-target="#xiugaimodal" data-toggle="modal">修改<span class="glyphicon glyphicon-pencil"></span></button>
-                    </div>
+                <!--<div id="toolbar0">-->
+                    <!--<div class="btn-group">-->
+                        <!--<button class="btn btn-primary" type="button">新增<span class="glyphicon glyphicon-plus"></span></button>-->
+                        <!--&lt;!&ndash;<button class="btn btn-default" type="button" data-target="#deletemodal" data-toggle="modal">删除<span class="glyphicon glyphicon-remove"></span></button>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<button class="btn btn-default" type="button" data-target="#xiugaimodal" data-toggle="modal">修改<span class="glyphicon glyphicon-pencil"></span></button>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="table-responsive">
+                    <table id="table" class="table table-hover"></table>
                 </div>
-                    <div class="table-responsive">
-                        <table id="table" class="table table-hover"></table>
-                    </div>
             </div>
             <div id="content_item1" class="container-fluid hidden">
                 <h2 class="sub-header">企业资质情况</h2>
@@ -297,14 +557,14 @@
                     <div class="input-group" style="width:350px">
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">请选择<span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a role="menuitem" href="#">企业名称</a></li>
-                                <li><a role="menuitem" href="#">企业编号</a></li>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">企业名称</a></li>
+                                <li><a href="#">企业编号</a></li>
                             </ul>
                             <!--<label class="control-label">选择企业</label>-->
                             <!--<select class="form-control">-->
-                                <!--<option value="" selected>企业名称</option>-->
-                                <!--<option value="">企业编号</option>-->
+                            <!--<option value="" selected>企业名称</option>-->
+                            <!--<option value="">企业编号</option>-->
                             <!--</select>-->
                         </div>
                         <input type="text" class="form-control" placeholder="输入查询条件">
@@ -342,16 +602,17 @@
             <div id="content_item2" class="container-fluid hidden">
                 <h2 class="sub-header">安全经费情况</h2>
                 <!--<div id="toolbar2">-->
-                    <!--<div class="btn-group">-->
-                        <!--<button class="btn btn-primary" type="button">新增<span class="glyphicon glyphicon-plus"></span></button>-->
-                        <!--<button class="btn btn-default" type="button" data-target="#deletemodal" data-toggle="modal">删除<span class="glyphicon glyphicon-remove"></span></button>-->
-                        <!--<button class="btn btn-default" type="button" data-target="#xiugaimodal" data-toggle="modal">修改<span class="glyphicon glyphicon-pencil"></span></button>-->
-                    <!--</div>-->
+                <!--<div class="btn-group">-->
+                <!--<button class="btn btn-primary" type="button">新增<span class="glyphicon glyphicon-plus"></span></button>-->
+                <!--<button class="btn btn-default" type="button" data-target="#deletemodal" data-toggle="modal">删除<span class="glyphicon glyphicon-remove"></span></button>-->
+                <!--<button class="btn btn-default" type="button" data-target="#xiugaimodal" data-toggle="modal">修改<span class="glyphicon glyphicon-pencil"></span></button>-->
+                <!--</div>-->
                 <!--</div>-->
                 <div class="table-responsive">
-                    <table id="table2" class="table table-hover"
+                    <table id="table2" class="table table-bordered"
                            data-toggle="table"
                            data-url="data/tablejson.json"
+
                            data-show-refresh="true"
                            data-show-toggle="true"
                            data-show-columns="true"
@@ -361,7 +622,7 @@
                            data-search="true">
                         <thead>
                         <tr>
-                            <th data-field="id" rowspan="2"></th>
+                            <th data-field="id" rowspan="2">ID</th>
                             <th data-field="trbh" rowspan="2">年份</th>
                             <th data-field="yjtrzj" rowspan="2">投入资金总额</th>
                             <th data-field="yjtrzj" rowspan="2">同期年总收入</th>
@@ -383,92 +644,174 @@
                 </div>
             </div>
             <div id="content_item3" class="container-fluid hidden">
-                <div class="panel panel-primary" style="margin-top: 50px;">
-                    <div class="panel-heading">
-                        危险品分类
-                    </div>
-                    <div class="panel-body">
+                <h2 class="sub-header">危险源信息列表</h2>
+                <!--<div id="toolbar3">-->
+                    <!--<form>-->
+                        <!--<div class="form-inline">-->
+                            <!--<div class="input-group">-->
+                                <!--<input type="text" class="form-control" placeholder="请输入查询企业名称">-->
+                                <!--<span class="input-group-btn">-->
+                                    <!--<button type="submit" class="btn btn-default">搜索</button>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<select class="form-control">-->
+                                    <!--<option value="-1">下拉选择公司</option>-->
+                                    <!--<option value="0">公司01</option>-->
+                                    <!--<option value="1">公司02</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
+                <div class="table-responsive"> 
+                    <table id="" class="table table-hover"
+                           data-toggle="table"
+                           data-url="data/tablejson.json"
 
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <a class="thumbnail">
-                                    <img src="img/储罐.png"/>
-                                </a>
-                                <div class="caption">
-                                    <h3 class="text-center">储罐区</h3>
-                                </div>
-                            </div>
-                            <!--<div class="col-lg-4">-->
-                                <!--<a class="thumbnail">-->
-                                    <!--<img src="img/库区1.png"/>-->
-                                <!--</a>-->
-                                <!--<div class="caption">-->
-                                    <!--<h3 class="text-center">库区</h3>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <div class="col-lg-4">
-                                <a href="#" class="thumbnail">
-                                    <img src="img/危险.png"/></a>
-                                <div class="caption">
-                                    <h3 class="text-center">压力容器</h3>
-                                </div>
-                            </div>
+                           data-show-refresh="true"
+                           data-pagination="true"
+                           data-page-size="15"
+                           data-page-list="[15,30,50]"
+                           data-search="true">
+                        <thead>
+                            <tr>
+                                <th data-field="">ID</th>
+                                <th data-field="">企业名称</th>
+                                <th data-field="">危险源编号</th>
+                                <th data-field="">危险源种类</th>
+                                <th data-field="">危险源等级</th>
+                                <th data-field="">地址</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div id="content_item7" class="container-fluid hidden">
+                <div class="row">
+                    <h2 class="sub-header">无人机数据采集</h2>
+                    <div class="col-md-3">
+                        <h3 class="panel-title">无人机状态</h3>
+                        <hr>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>无人机编号：</th>
+                                <th>彩虹一号机</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>当前时间：</td>
+                                <td>2017/7/23 16:30:35</td>
+                            </tr>
+
+                            <tr>
+                                <td>天气状况</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>能见度：</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>高度：</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>当前经度：</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>当前纬度：</td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div  style="height: 400px;width: 100%;background-color:#f8efc0">
+                            <p class="text-center">此处可以做一个鹰眼图</p>
                         </div>
-                        <!--<div class="row">-->
-                            <!--<div class="col-lg-4">-->
-                                <!--<a href="#" class="thumbnail">-->
-                                    <!--<img src="img/管道.png"/></a>-->
-                                <!--<div class="caption">-->
-                                    <!--<h3 class="text-center">压力管道</h3>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="col-lg-4">-->
-                                <!--<a href="#" class="thumbnail">-->
-                                    <!--<img src="img/煤矿.png"/>-->
-                                <!--</a>-->
-                                <!--<div class="caption">-->
-                                    <!--<h3 class="text-center">煤矿</h3>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="col-lg-4">-->
-                                <!--<a href="#" class="thumbnail">-->
-                                    <!--<img src="img/金属行情.png"/>-->
-                                <!--</a>-->
-                                <!--<div class="caption">-->
-                                    <!--<h3 class="text-center">金属矿</h3>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="row">-->
-                            <!--<div class="col-lg-4">-->
-                                <!--<a href="#" class="thumbnail">-->
-                                    <!--<img src="img/废金属.png"/>-->
-                                <!--</a>-->
-                                <!--<div class="caption">-->
-                                    <!--<h3 class="text-center">尾矿区</h3>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="col-lg-4">-->
-                                <!--<a href="#" class="thumbnail">-->
-                                    <!--<img src="img/生产.png"/>-->
-                                <!--</a>-->
-                                <!--<div class="caption">-->
-                                    <!--<h3 class="text-center">危险生产场所</h3>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="col-lg-4">-->
-                                <!--<a href="#" class="thumbnail">-->
-                                    <!--<img src="img/危险.png"/></a>-->
-                                <!--<div class="caption">-->
-                                    <!--<h3 class="text-center">压力容器</h3>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
+                    </div>
+                    <div class="col-md-9">
+                        <div class="table-responsive">
+                            <table id="" class="table table-hover"
+                                   data-toggle="table"
+                                   data-url="data/tablejson.json"
+
+                                   data-show-refresh="true"
+                                   data-pagination="true"
+                                   data-page-size="15"
+                                   data-page-list="[15,30,50]"
+                                   data-search="true">
+                                <thead>
+                                <tr>
+                                    <th data-field="">ID</th>
+                                    <th data-field="">Date</th>
+                                    <th data-field="">Longitude</th>
+                                    <th data-field="">Latitude</th>
+                                    <th data-field="">SO^2</th>
+                                    <th data-field="">PM2.5</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div id="content_item8" class="container-fluid hidden">
+                <div class="table-responsive">
+                    <h2 class="sub-header">历史数据</h2>
+                    <table id="" class="table table-hover"
+                           data-toggle="table"
+                           data-url="data/tablejson.json"
+
+                           data-show-refresh="true"
+                           data-pagination="true"
+                           data-page-size="15"
+                           data-page-list="[15,30,50]"
+                           data-search="true">
+                        <thead>
+                        <tr>
+                            <th data-field="">ID</th>
+                            <th data-field="">Date</th>
+                            <th data-field="">Longitude</th>
+                            <th data-field="">Latitude</th>
+                            <th data-field="">SO^2</th>
+                            <th data-field="">PM2.5</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div id="content_item10" class="container-fluid hidden">
+                <div id="MapContext">
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a tabindex="-1" href="#">新增企业</a></li>
+                        <li><a tabindex="-1" href="#">新增危险源</a></li>
+                        <li><a tabindex="-1" href="#" id="zhmn">灾害模拟</a></li>
+                        <li><a tabindex="-1" href="#">实时分析</a></li>
+                    </ul>
+                </div>
+                <!--<div id="zhmnContext">-->
+                    <!--<ul class="dropdown-menu" role="menu">-->
+                        <!--<li><a href="#" tabindex="-2" id="zhmncx">危害气体持续泄露</a></li>-->
+                        <!--<li><a href="#" tabindex="-2">危害气体瞬时泄露</a></li>-->
+                        <!--<li><a href="#" tabindex="-2">压力容器爆炸模拟</a></li>-->
+                        <!--<li><a href="#" tabindex="-2">蒸汽云爆炸</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                
+                <div id="map" style="width: 100%;height: 850px;background-color: #1b6d85;" data-toggle="context" data-target="#MapContext"></div>
             </div>
         </div>
     </div>
 </div>
 </body>
+<script>
+    $(document).ready(function () {
+        $('#zhmn').click(function () {
+            $('#zhmnmodal').modal('show');
+        });
+    })
+</script>
 </html>
