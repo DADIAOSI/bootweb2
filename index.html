@@ -13,9 +13,9 @@
             background-repeat: repeat-x;
             margin-top: 20px;
             margin-bottom: 10px;
-            background: url("http://www.pp3.cn/uploads/1304/47.jpg");
+            background: url("img/47.jpg");
         }
-    </style>
+        </style>
     <link rel="stylesheet" href="css/bootstrap-table.min.css">
     <script src="js/bootstrap-table.min.js"></script>
     <script src="js/webjs.js"></script>
@@ -165,7 +165,7 @@
                 <ul class="nav nav-pills nav-justified">
                     <li class="active"><a href="#one" data-toggle="tab">危害气体持续泄露</a></li>
                     <li><a href="#two" data-toggle="tab">危害气体瞬时泄露</a></li>
-                    <li><a href="#three" data-toggle="tab">压力容器物理爆炸</a></li>
+
                     <li><a href="#four" data-toggle="tab">蒸汽云爆炸</a></li>
                 </ul>
                 <div class="tab-content">
@@ -273,44 +273,44 @@
                     </div>
                     <div id="two" class="tab-pane fade">
                         <div class="panel-body">
-
-                        </div>
-                    </div>
-                    <div id="three" class="tab-pane fade">
-                        <div class="panel-body">
-
-                        </div>
-                    </div>
-                    <div id="four" class="tab-pane fade">
-                        <div class="panel-body">
                             <div class="table-responsive">
                                 <form>
                                     <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label class="control-label" for="rlrsr">燃料燃烧热:</label>
+                                                <label class="control-label" for="ssfs">风速:</label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" id="rlrsr" name="rlrsr">
+                                                    <input type="text" class="form-control" id="ssfs" name="ssfs">
                                                     <span class="input-group-addon">
-                                            KJ/kg
+                                            m/s
                                         </span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label class="control-label" for="trqzl">参与爆炸的液化天然气质量:</label>
+                                                <label class="control-label" for="ssxlyq">泄露源强:</label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" id="trqzl" name="trqzl">
+                                                    <input type="text" class="form-control" id="ssxlyq" name="ssxlyq">
                                                     <span class="input-group-addon">
-                                                kg
+                                                mg/s
                                         </span>
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="control-label" for="ssfx">风向:</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="ssfx" name="ssfx" placeholder="正北:0或360度(顺时针)">
+                                                    <span class="input-group-addon">
+                                            度
+                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <table id="hjcs4Table" class="table table-bordered">
+                                    <table id="hjcs2Table" class="table table-bordered">
                                         <thead>
                                         <tr>
                                             <th colspan="1"></th>
@@ -369,6 +369,99 @@
                                         </tr>
                                         </tbody>
                                     </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="four" class="tab-pane fade">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="control-label" for="rlrsr">燃料燃烧热:</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="rlrsr" name="rlrsr">
+                                                    <span class="input-group-addon">
+                                            KJ/kg
+                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="control-label" for="trqzl">参与爆炸的液化天然气质量:</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="trqzl" name="trqzl">
+                                                    <span class="input-group-addon">
+                                                kg
+                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!--<table id="hjcs4Table" class="table table-bordered">-->
+                                        <!--<thead>-->
+                                        <!--<tr>-->
+                                            <!--<th colspan="1"></th>-->
+                                            <!--<th colspan="3">白天日照</th>-->
+                                            <!--<th colspan="2">夜间条件</th>-->
+                                        <!--</tr>-->
+                                        <!--<tr>-->
+                                            <!--<th>表面风速</th>-->
+                                            <!--<th>强</th>-->
+                                            <!--<th>中</th>-->
+                                            <!--<th>弱</th>-->
+                                            <!--<th>云覆盖大于4/8</th>-->
+                                            <!--<th>云覆盖大于3/8</th>-->
+                                        <!--</tr>-->
+                                        <!--</thead>-->
+                                        <!--<tbody>-->
+                                        <!--<tr>-->
+                                            <!--<td><input type="radio" name="radio" value="<2"><2</td>-->
+                                            <!--<td><input type="radio" name="radio" value="A">A</td>-->
+                                            <!--<td><input type="radio" name="radio" value="A-B">A-B</td>-->
+                                            <!--<td><input type="radio" name="radio" value="B">B</td>-->
+                                            <!--<td><input type="radio" name="radio" value="F">F</td>-->
+                                            <!--<td><input type="radio" name="radio" value="F">F</td>-->
+                                        <!--</tr>-->
+                                        <!--<tr>-->
+                                            <!--<td><input type="radio" name="radio" value="">2-3</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">A-B</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">B</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">C</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">E</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">F</td>-->
+                                        <!--</tr>-->
+                                        <!--<tr>-->
+                                            <!--<td><input type="radio" name="radio" value="">3-5</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">B</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">B-C</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">C</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">E</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">F</td>-->
+                                        <!--</tr>-->
+                                        <!--<tr>-->
+                                            <!--<td><input type="radio" name="radio" value="">5-6</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">C</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">C-D</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">D</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">D</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">D</td>-->
+                                        <!--</tr>-->
+                                        <!--<tr>-->
+                                            <!--<td><input type="radio" name="radio" value=""><6</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">C</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">D</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">D</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">D</td>-->
+                                            <!--<td><input type="radio" name="radio" value="">D</td>-->
+                                        <!--</tr>-->
+                                        <!--</tbody>-->
+                                    <!--</table>-->
                                 </form>
                             </div>
                         </div>
@@ -475,7 +568,7 @@
                     </div>
                     <div id="collapseone" class="panel-collapse collapse">
                         <div class="list-group">
-                            <a id="item0" class="list-group-item active" href="#">企业信息</a>
+                            <a id="item0" class="list-group-item" href="#">企业信息</a>
                             <a id="item1" class="list-group-item" href="#">资质情况</a>
                             <a id="item2" class="list-group-item" href="#">安全经费</a>
                         </div>
@@ -516,7 +609,7 @@
                         <h4 class="panel-title"><a href="#collapsesix" data-parent="accordion" data-toggle="collapse">企业危险源监控</a></h4>
                     </div>
                     <div id="collapsesix" class="panel-collapse collapse">
-                        <a id="item10" href="#" class="list-group-item">事故模拟</a>
+                        <a id="item10" href="#" class="list-group-item active">事故模拟</a>
                     </div>
                 </div>
                 <div class="panel panel-default">
@@ -541,7 +634,7 @@
             </div>
         </div>
         <div id="rightcontent" class="col-sm-9 col-md-10">
-            <div id="content_item0" class="container-fluid">
+            <div id="content_item0" class="container-fluid hidden">
                 <h2 class="sub-header">企业列表</h2>
                 <!--<div id="toolbar0">-->
                     <!--<div class="btn-group">-->
@@ -786,7 +879,7 @@
                     </table>
                 </div>
             </div>
-            <div id="content_item10" class="container-fluid hidden">
+            <div id="content_item10" class="container-fluid">
                 <div id="MapContext">
                     <ul class="dropdown-menu" role="menu">
                         <li><a tabindex="-1" href="#">新增企业</a></li>
