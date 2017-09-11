@@ -110,17 +110,15 @@ require([
 
   function defineActions(event) {
     var item = event.item;
-    item.actionsSections = [
-      [{
-        title: "Go to full extent",
-        className: "esri-icon-zoom-out-fixed",
-        id: "full-extent"
-      }, {
-        title: "Layer information",
-        className: "esri-icon-description",
-        id: "information"
-      }]
-    ];
+    if (item.title == "企业")
+
+      item.actionsSections = [
+        [{
+          title: "Go to full extent",
+          className: "esri-icon-edit",
+          id: "edit"
+        }]
+      ];
   }
 
   //添加搜索框
@@ -174,6 +172,13 @@ require([
   });
   view.ui.add(compass, "top-right");
 
+  $('#ssfx-ljfx').click(function () {
+    if ($('#ssfx-ljfx').text() == "实时分析") {
+      RouterAnalysis();
+      $('#map').css("cursor", "crosshair");
+    }
+  });
+
   //路径分析函数
   function RouterAnalysis() {
     //绑定事件
@@ -201,7 +206,6 @@ require([
     });
 
     function addStop(event) {
-
       //左键添加点
       if (event.button == 0) {
         var stop = new Graphic({
@@ -215,8 +219,9 @@ require([
           routeTask.solve(routeParams).then(showRoute);
         }
       }
+
       //右键删除事件监听，删除图层
-      if (event.button == 1) {
+      if (event.button == 2) {
         clickListen.remove();
         map.layers.remove(routeLyr);
       }
